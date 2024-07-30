@@ -9,8 +9,8 @@ int main() {
 	fillMatrix(input, 2);
 
 	Matrix *weights = createMatrix(2, 3);
-	weights->data[0][0] = 1; weights->data[0][1] = -1; weights->data[0][2] = 0;
-	weights->data[1][0] = 0; weights->data[1][1] = 1; weights->data[1][2] = 1;
+	weights->value[0][0] = 1; weights->value[0][1] = -1; weights->value[0][2] = 0;
+	weights->value[1][0] = 0; weights->value[1][1] = 1; weights->value[1][2] = 1;
 
 	Matrix *bias = createMatrix(2, 1);
 	fillMatrix(bias, 1);

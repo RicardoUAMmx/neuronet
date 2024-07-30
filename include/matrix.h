@@ -2,11 +2,10 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
-
 typedef struct Matrix {
 	int rows;
 	int cols;
-	int **data;
+	float **value;
 } Matrix;
 
 Matrix *createMatrix(int rows, int cols);
