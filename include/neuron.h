@@ -5,6 +5,12 @@
 #include "matrix.h"
 #include "activation.h"
 
-Matrix *neuron(Matrix *inputs, Matrix *weights, Matrix *bias, ActivationFunction activation);
+typedef struct Layer {
+	Matrix *weights;
+	Matrix *bias;
+	ActivationFunction activation;
+} Layer;
+
+Matrix *neuron(Matrix *inputs, Layer layer);
 
 #endif // NEURON_H

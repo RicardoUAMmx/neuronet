@@ -8,19 +8,21 @@ int main() {
 	Matrix *input = createMatrix(3, 1);
 	fillMatrix(input, 2);
 
-	Matrix *weights = createMatrix(2, 3);
-	weights->value[0][0] = 1; weights->value[0][1] = -1; weights->value[0][2] = 0;
-	weights->value[1][0] = 0; weights->value[1][1] = 1; weights->value[1][2] = 1;
+	Layer layer;
+	layer.weights = createMatrix(2, 3);
+	layer.weights->value[0][0] = 0.5; layer.weights->value[0][1] = 0.5; layer.weights->value[0][2] = 0.5;
+	layer.weights->value[1][0] = 0.5; layer.weights->value[1][1] = 0.5; layer.weights->value[1][2] = 0.5;
 
-	Matrix *bias = createMatrix(2, 1);
-	fillMatrix(bias, 1);
+	layer.bias = createMatrix(2, 1);
+	fillMatrix(layer.bias, 0.5);
 
-	Matrix *output = neuron(input, weights, bias, hardLimit);
+	layer.activation = sigmoid;
+	Matrix *output = neuron(input, layer);
 	if (output == NULL) {
 		fprintf(stderr, "Error: neuron() returned NULL\n");
 		freeMatrix(&input);
-		freeMatrix(&weights);
-		freeMatrix(&bias);
+		freeMatrix(&layer.weights);
+		freeMatrix(&layer.bias);
 		return EXIT_FAILURE;
 	}
 
@@ -28,8 +30,8 @@ int main() {
 	printMatrix(output);
 
 	freeMatrix(&input);
-	freeMatrix(&weights);
-	freeMatrix(&bias);
+	freeMatrix(&layer.weights);
+	freeMatrix(&layer.bias);
 	freeMatrix(&output);
 
 	return EXIT_SUCCESS;

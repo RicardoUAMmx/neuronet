@@ -8,18 +8,18 @@ void activate(Matrix **m, ActivationFunction f) {
 	*m = m_temp;
 }
 
-Matrix *neuron(Matrix *inputs, Matrix *weights, Matrix *bias, ActivationFunction f) {
-	Matrix *m_temp = multiplyMatrix(weights, inputs);
+Matrix *neuron(Matrix *inputs, Layer layer) {
+	Matrix *m_temp = multiplyMatrix(layer.weights, inputs);
 	if (m_temp == NULL) {
 		return NULL;
 	}
 
-	Matrix *m_temp2 = addMatrix(m_temp, bias);
+	Matrix *m_temp2 = addMatrix(m_temp, layer.bias);
 	freeMatrix(&m_temp);
 	if (m_temp2 == NULL) {
 		return NULL;
 	}
 
-	activate(&m_temp2, f);
+	activate(&m_temp2, layer.activation);
 	return m_temp2;
 }

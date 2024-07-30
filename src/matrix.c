@@ -86,7 +86,7 @@ Matrix *addMatrix(Matrix *m_a, Matrix *m_b) {
 	return m_c;
 }
 
-void fillMatrix(Matrix *m, int value) {
+void fillMatrix(Matrix *m, float value) {
 	for (int i = 0; i < m->rows; i++) {
 		for (int j = 0; j < m->cols; j++) {
 			m->value[i][j] = value;

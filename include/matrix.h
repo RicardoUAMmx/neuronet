@@ -13,6 +13,6 @@ void freeMatrix(Matrix **m);
 void printMatrix(Matrix *m);
 Matrix *multiplyMatrix(Matrix *m_a, Matrix *m_b);
 Matrix *addMatrix(Matrix *m_a, Matrix *m_b);
-void fillMatrix(Matrix *m, int value);
+void fillMatrix(Matrix *m, float value);
 
 #endif // MATRIX_H
